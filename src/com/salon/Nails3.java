@@ -5,32 +5,25 @@ public class Nails3 {
 	//class attributes
 		public String color;
 		public String shape;
-		public String addPedicure;
-		static String price = "20";
-		static String extraPrice = "30";
-		public String finalPrice;
+		public Boolean wantsPedicure = false;
+		public Integer basePrice = 20;
+		public Integer pedicurePrice = 10;
+		public Integer totalPrice = basePrice;
 
 		//constructor
-		public Nails3 (String color, String shape, String addPedicure, String finalPrice) {
 
-		//set values
-		this.color = color;
-		this.shape = shape;
-		this.addPedicure = addPedicure;
-		this.finalPrice = finalPrice;
-		}
 		
 		//method to add on pedicure or not
-		public void addPedicure() {
-			if (addPedicure.equals("yes")) 
-			finalPrice = extraPrice;
-			else
-			finalPrice = price;
+		public void addPedicure(String preference) {
+			if (preference.equals("yes")) {
+				wantsPedicure = true;
+				totalPrice += pedicurePrice;
+			}
 		}
 				
 		//method display summary
-		public String toString() {
-		return("Nails [color = " + color + ", shape = " + shape + ", Pedicure = " + addPedicure +", Price = $" + finalPrice +"]");
+		public String getNailPreferences() {
+		return ("Nail:\ncolor: " + color + ",\nshape: " + shape + ",\npedicure: " + (wantsPedicure ? "yes" : "no") +",\nprice: $" + totalPrice +".");
 		}
 		
 }
